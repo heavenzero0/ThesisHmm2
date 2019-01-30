@@ -3,8 +3,11 @@ import './plugins/vuetify'
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+import GCharts from 'vue-google-charts';
 
 Vue.config.productionTip = false;
+
+Vue.use(GCharts);
 
 new Vue({
   router,
