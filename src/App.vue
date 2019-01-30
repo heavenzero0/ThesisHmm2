@@ -13,8 +13,8 @@
 import * as tf from "@tensorflow/tfjs";
 import dna from "./assets/training.json";
 import dnaTesting from "./assets/testing.json";
-import input from "./assets/input.json";
-import output from "./assets/output.json";
+// import input from "./assets/input.json";
+// import output from "./assets/output.json";
 import Spinner from "./components/UI/spinner";
 import Graph from "./components/Graph/googleGraph";
 
@@ -83,13 +83,12 @@ export default {
           //   (1 - history.history.loss[history.history.loss.length - 1]) * 100;
           // this.accuracy = Math.round(h * 100) / 100;
           // this.loading = false;
-          const gg = history.history.loss.forEach((val, index) => {
+          history.history.loss.forEach((val, index) => {
             const accuracy = (1 - val) * 100;
             const train = [index + 1, Math.round(accuracy * 100) / 100];
             this.value = [...this.value, Math.round(accuracy * 100) / 100];
             this.data = [...this.data, train];
           });
-          console.log(this.value);
           this.loading = false;
         });
     }
