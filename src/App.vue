@@ -72,11 +72,11 @@ export default {
 
       model.compile({
         loss: "meanSquaredError",
-        optimizer: tf.train.adam(0.06)
+        optimizer: tf.train.adam(0.1)
       });
 
       model
-        .fit(this.trainingData, this.outputData, { epochs: 50 })
+        .fit(this.trainingData, this.outputData, { epochs: 100 })
         .then(history => {
           // model.predict(this.testingData).print();
           // const h =
@@ -89,6 +89,7 @@ export default {
             this.value = [...this.value, Math.round(accuracy * 100) / 100];
             this.data = [...this.data, train];
           });
+          // console.log(this.data);
           this.loading = false;
         });
     }
